@@ -1,4 +1,5 @@
 import React from "react";
+import user from "../../data/user";
 
 const PersonalInfo = () => {
   return (
@@ -16,7 +17,7 @@ const PersonalInfo = () => {
           <input
             type="text"
             className="col-span-3 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0045A8]"
-            value="Tran Quoc Thang"
+            value={user[0].name}
             readOnly
           />
         </div>

@@ -1,6 +1,7 @@
 // src/Components/ProfileSidebar.jsx
 import React from "react";
 import { Contact, User, Home, Star, Heart, Bell, LogOut } from "lucide-react";
+import user from "../data/user";
 
 const ProfileSidebar = ({ selectedTab, setSelectedTab }) => {
   const menuItems = [
@@ -15,14 +16,18 @@ const ProfileSidebar = ({ selectedTab, setSelectedTab }) => {
   return (
     <aside className="hidden md:block md:w-1/3 bg-white rounded-lg shadow p-4">
       <div className="flex items-center gap-3 mb-6">
-        <div className="bg-gray-200 text-gray-700 font-semibold rounded-full w-12 h-12 flex items-center justify-center text-xl">
-          Tran
-        </div>
-        <div>
-          <h3 className="text-gray-800 font-semibold leading-tight">
-            Tran Quoc Thang
-          </h3>
-          <p className="text-sm text-gray-500">ID: #33015</p>
+        <div className="flex items-center gap-3">
+          <img
+            src={user[0].avatar}
+            alt={user[0].name}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+          <div>
+            <h3 className="text-gray-800 font-semibold leading-tight">
+              {user[0].name}
+            </h3>
+            <p className="text-sm text-gray-500">ID: #{user[0].id}</p>
+          </div>
         </div>
       </div>
 
@@ -43,7 +48,7 @@ const ProfileSidebar = ({ selectedTab, setSelectedTab }) => {
         ))}
 
         <button className="w-full text-left px-3 py-2 rounded-md font-medium text-red-500 hover:bg-gray-100">
-          <LogOut size={18} className="inline" /> Đăng xuất 
+          <LogOut size={18} className="inline" /> Đăng xuất
         </button>
       </nav>
     </aside>
