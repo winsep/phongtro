@@ -1,27 +1,34 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { rooms } from "../data/rooms"; // giả sử bạn import được danh sách phòng
 
 const Breadcrumb = () => {
   const location = useLocation();
-
-  // Tách path thành mảng các phần
   const pathnames = location.pathname.split("/").filter((x) => x);
 
-  // Hàm chuyển slug thành tiếng Việt (tuỳ chỉnh theo nhu cầu)
-  const formatName = (slug) => {
+  // Nếu là route chi tiết phòng thì lấy tên
+  const getRoomTitle = (slug) => {
+    const room = rooms.find((r) => r.slug === slug);
+    return room ? room.title : slug;
+  };
+
+  const formatName = (slug, index) => {
     const mapping = {
       "": "Trang chủ",
-      "nha-tro": "Nhà trọ",
-      "phong-tro": "Phòng trọ",
-      "chi-tiet": "Chi tiết",
+      "rooms": "Danh sách phòng",
       "lien-he": "Liên hệ",
       // thêm route khác nếu cần
     };
 
-    return (
-      mapping[slug] ||
-      slug.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())
-    );
+    if (mapping[slug]) return mapping[slug];
+
+    // Nếu là phần cuối cùng của đường dẫn và sau /rooms/..., hiển thị tên phòng
+    if (pathnames[index - 1] === "rooms") {
+      return getRoomTitle(slug);
+    }
+
+    // Mặc định: chuyển slug sang chữ cái đầu viết hoa
+    return slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   };
 
   return (
@@ -46,10 +53,12 @@ const Breadcrumb = () => {
               </li>
               <li>
                 {isLast ? (
-                  <span className="text-gray-500">{formatName(value)}</span>
+                  <span className="text-gray-500">
+                    {formatName(value, index)}
+                  </span>
                 ) : (
                   <Link to={to} className="text-orange-500 hover:underline">
-                    {formatName(value)}
+                    {formatName(value, index)}
                   </Link>
                 )}
               </li>

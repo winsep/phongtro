@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { FaFilter, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { utilities } from "../../data/utilities";
-import { surroundings } from "../../data/surroundings";
+import { utilitiesList } from "../../data/utilities"; // đổi tên import cho rõ ràng
+import { surroundingsList } from "../../data/surroundings"; // dùng bảng mới
 
 const RoomFilter = ({ onFilter, onReset }) => {
   const [selectedAreaRange, setSelectedAreaRange] = useState("");
@@ -17,7 +17,11 @@ const RoomFilter = ({ onFilter, onReset }) => {
   });
 
   const toggleCheckbox = (value, list, setter) => {
-    setter(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+    setter(
+      list.includes(value)
+        ? list.filter((v) => v !== value)
+        : [...list, value]
+    );
   };
 
   const handleSubmit = (e) => {
@@ -56,7 +60,9 @@ const RoomFilter = ({ onFilter, onReset }) => {
           className="flex justify-between items-center cursor-pointer mb-2"
           onClick={() => toggleSection("area")}
         >
-          <p className="font-semibold text-gray-700 text-[16px]">Diện tích phòng</p>
+          <p className="font-semibold text-gray-700 text-[16px]">
+            Diện tích phòng
+          </p>
           {openSections.area ? <FaChevronUp /> : <FaChevronDown />}
         </div>
 
@@ -116,7 +122,7 @@ const RoomFilter = ({ onFilter, onReset }) => {
               transition={{ duration: 0.3 }}
               className="space-y-2 pl-2 overflow-hidden"
             >
-              {utilities.map((util) => (
+              {utilitiesList.map((util) => (
                 <label
                   key={util.id}
                   className="flex items-center gap-3 text-sm font-normal text-gray-700"
@@ -125,7 +131,11 @@ const RoomFilter = ({ onFilter, onReset }) => {
                     type="checkbox"
                     checked={selectedUtilities.includes(util.id)}
                     onChange={() =>
-                      toggleCheckbox(util.id, selectedUtilities, setSelectedUtilities)
+                      toggleCheckbox(
+                        util.id,
+                        selectedUtilities,
+                        setSelectedUtilities
+                      )
                     }
                     className="w-5 h-5"
                   />
@@ -143,7 +153,9 @@ const RoomFilter = ({ onFilter, onReset }) => {
           className="flex justify-between items-center cursor-pointer mb-2"
           onClick={() => toggleSection("surroundings")}
         >
-          <p className="font-semibold text-gray-700 text-[16px]">Môi trường xung quanh</p>
+          <p className="font-semibold text-gray-700 text-[16px]">
+            Môi trường xung quanh
+          </p>
           {openSections.surroundings ? <FaChevronUp /> : <FaChevronDown />}
         </div>
 
@@ -157,7 +169,7 @@ const RoomFilter = ({ onFilter, onReset }) => {
               transition={{ duration: 0.3 }}
               className="space-y-2 pl-2 overflow-hidden"
             >
-              {surroundings.map((env) => (
+              {surroundingsList.map((env) => (
                 <label
                   key={env.id}
                   className="flex items-center gap-3 text-sm font-normal text-gray-700"
@@ -166,7 +178,11 @@ const RoomFilter = ({ onFilter, onReset }) => {
                     type="checkbox"
                     checked={selectedSurroundings.includes(env.id)}
                     onChange={() =>
-                      toggleCheckbox(env.id, selectedSurroundings, setSelectedSurroundings)
+                      toggleCheckbox(
+                        env.id,
+                        selectedSurroundings,
+                        setSelectedSurroundings
+                      )
                     }
                     className="w-5 h-5"
                   />

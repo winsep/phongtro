@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const RoomCard = ({ room }) => {
   return (
-    <div className="flex p-4 rounded-lg bg-white font-sans">
+    <Link to={`/phong-tro/${room.slug}`} className="flex p-4 rounded-lg bg-white font-sans">
       <div className="relative w-48 h-32 mr-4 flex-shrink-0">
         <img
-          src={room.image}
+          src={room.images?.[0]}
           alt={room.title}
           className="w-full h-full object-cover rounded-md"
         />
@@ -38,7 +39,7 @@ const RoomCard = ({ room }) => {
           <span>{room.address}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
