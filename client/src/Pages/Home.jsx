@@ -12,7 +12,7 @@ const Home = () => {
       <Header />
 
       {/* Div 1: Banner chính */}
-     <div className="bg-[url('https://tromoi.com/frontend/home/images/banner_default.jpg')] bg-cover bg-center min-h-[400px] text-white relative flex items-center mt-19">
+     <div className="bg-[url('https://tromoi.com/frontend/home/images/banner_default.jpg')] bg-cover bg-center min-h-[400px] text-white relative flex items-center mt-18">
   <div className="max-w-full w-full mx-auto p-6 flex justify-start items-center h-full">
     <div>
       <h1 className="text-4xl md:text-5xl font-bold mb-4">TÌM NHANH, KIẾM DỄ<br />TRỌ MỚI TOÀN QUỐC</h1>

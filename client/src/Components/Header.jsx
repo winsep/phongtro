@@ -19,10 +19,8 @@ const Header = () => {
 
   return (
     <>
-      <nav className="fixed top-4 left-4 right-4 z-50
-        backdrop-blur-md bg-white/20
-        border border-white/30
-        md:rounded-full shadow-md text-white">
+      <nav className="fixed w-full top-0 py-2 z-100 bg-white
+         text-white">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           {/* Logo bên trái */}
           <div className="text-2xl font-bold flex-1">
@@ -36,7 +34,7 @@ const Header = () => {
             {/* Loại phòng dropdown */}
             <li className="relative group">
               <a href="/products" className="hover:text-blue-700 text-blue-500">Loại phòng</a>
-              <ul className="absolute hidden group-hover:block bg-white text-blue-500 shadow-lg rounded-md mt-1 p-4 space-y-2 z-50">
+              <ul className="absolute hidden group-hover:block bg-white text-blue-500 shadow-lg rounded-md mt-1 p-4 space-y-2 ">
                 <li><a href="/products/room" className="hover:text-blue-700">Phòng trọ</a></li>
                 <li><a href="/products/apartment" className="hover:text-blue-700">Căn hộ</a></li>
                 <li><a href="/products/house" className="hover:text-blue-700">Nhà nguyên căn</a></li> 
@@ -49,7 +47,7 @@ const Header = () => {
             {/* Tìm theo khu vực dropdown */}
             <li className="relative group">
               <div className="cursor-pointer hover:text-blue-700 text-blue-500">Tìm theo khu vực</div>
-              <ul className="absolute hidden group-hover:block bg-white text-blue-500 shadow-lg rounded-md mt-1 p-4 space-y-2 z-50 min-w-[150px]">
+              <ul className="absolute hidden group-hover:block bg-white text-blue-500 shadow-lg rounded-md mt-1 p-4 space-y-2 min-w-[150px]">
                 <li><a href="/search?khuvuc=hcm" className="hover:text-blue-700">TP. HCM</a></li>
                 <li><a href="/search?khuvuc=hanoi" className="hover:text-blue-700">Hà Nội</a></li>
                 <li><a href="/search?khuvuc=danang" className="hover:text-blue-700">Đà Nẵng</a></li>
