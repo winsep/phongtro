@@ -3,6 +3,7 @@ import Home from "./Pages/Home";
 import Profile from "./Pages/Profile";
 import Rooms from "./Pages/Rooms";
 import RoomDetail from "./Pages/RoomDetail";
+import Messages from "./Pages/Messages";
 
 // Admin Pages
 import AdminLayout from "./Pages/Admin/AdminLayout";
@@ -11,7 +12,15 @@ import AdminRooms from "./Pages/Admin/Rooms";
 import Bookings from "./Pages/Admin/Bookings";
 import Users from "./Pages/Admin/Users";
 import Chat from "./Pages/Admin/Chat";
-import Messages from "./Pages/Messages";
+
+// Saler Pages
+import SalerLayout from "./Pages/Saler/SalerLayout";
+import SalerDashboard from "./Pages/Saler/Dashboard";
+import SalerRooms from "./Pages/Saler/Rooms";
+import SalerBookings from "./Pages/Saler/Bookings";
+import SalerUsers from "./Pages/Saler/Users";
+import SalerChat from "./Pages/Saler/Chat";
+
 
 function App() {
   return (
@@ -33,6 +42,14 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="chat" element={<Chat />} />
         </Route>
+        {/* Saler routes with layout */}
+        <Route path="/saler" element={<SalerLayout />}>
+          <Route index element={<SalerDashboard />} />
+          <Route path="rooms" element={<SalerRooms />} />
+          <Route path="bookings" element={<SalerBookings />} />
+          <Route path="users" element={<SalerUsers />} />
+          <Route path="chat" element={<SalerChat />} />
+        </Route>  
       </Routes>
     </Router>
   );

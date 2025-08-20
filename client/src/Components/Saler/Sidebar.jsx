@@ -35,28 +35,25 @@ function Sidebar() {
       >
         {/* Header PC */}
         <div className="hidden md:flex items-center justify-between p-4">
-          <span className="font-bold text-lg">Admin</span>
+          <span className="font-bold text-lg">Saler</span>
         </div>
 
         {/* Menu */}
         <nav className="flex-1 p-2 space-y-1">
-          <Link to="/admin/" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
+          <Link to="/saler/" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
             <span><i className="fa-solid fa-house"></i></span>
             <span>Tổng Quan</span>
           </Link>
-          <Link to="/admin/rooms" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
+          <Link to="/saler/rooms" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
             <span><i className="fa-solid fa-people-roof"></i></span>
             <span>Phòng</span>
           </Link>
-          <Link to="/admin/bookings" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
+          <Link to="/saler/bookings" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
             <span><i className="fa-solid fa-calendar-check"></i></span>
-            <span>Đặt Phòng</span>
+            <span>Khách Đặt</span>
           </Link>
-          <Link to="/admin/users" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
-            <span><i className="fa-solid fa-user-group"></i></span>
-            <span>Người Dùng</span>
-          </Link>
-          <Link to="/admin/chat" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
+          
+          <Link to="/saler/chat" className="flex items-center gap-3 p-2 rounded hover:bg-gray-100">
             <span><i className="fa-solid fa-comments"></i></span>
             <span>Trò Truyện</span>
           </Link>
@@ -78,7 +75,7 @@ function Sidebar() {
   className="cursor-pointer flex items-center justify-between w-full"
   onClick={() => setShowMenu((prev) => !prev)}
 >
-  <span>Admin</span>
+  <span>Saler</span>
   <i className="fa-solid fa-arrows-up-down fa-2xs"></i>
 </div>
 
@@ -107,38 +104,34 @@ function Sidebar() {
 </div>
 
       </aside>
-
-     {/* Navbar mobile (thay cho sidebar) */}
-<div className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t flex justify-around items-center py-2 z-50">
-  <Link to="/admin/" className="flex flex-col items-center text-xs">
+{/* Navbar mobile (thay cho sidebar) */}
+<div className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t flex justify-between items-center py-2 z-50">
+  <Link to="/saler/" className="flex flex-col items-center text-sm flex-1">
     <i className="fa-solid fa-house text-lg"></i>
     <span>Tổng Quan</span>
   </Link>
-  <Link to="/admin/rooms" className="flex flex-col items-center text-xs">
+  <Link to="/saler/rooms" className="flex flex-col items-center text-sm flex-1">
     <i className="fa-solid fa-people-roof text-lg"></i>
     <span>Phòng</span>
   </Link>
-  <Link to="/admin/bookings" className="flex flex-col items-center text-xs">
+  <Link to="/saler/bookings" className="flex flex-col items-center text-sm flex-1">
     <i className="fa-solid fa-calendar-check text-lg"></i>
-    <span>Đặt Phòng</span>
-  </Link>
-  <Link to="/admin/users" className="flex flex-col items-center text-xs">
-    <i className="fa-solid fa-user-group text-lg"></i>
-    <span>Người Dùng</span>
+    <span>Khách Đặt</span>
   </Link>
 
-  {/* Admin dropdown */}
-  <div className="relative flex flex-col items-center text-xs">
+  {/* Icon Saler có popup */}
+  <div className="relative flex-1">
     <div
-      className="flex flex-col items-center cursor-pointer"
+      className="flex flex-col items-center text-sm cursor-pointer"
       onClick={() => setShowMenu((prev) => !prev)}
     >
       <i className="fa-solid fa-user-circle text-lg"></i>
-      <span>Admin</span>
+      <span>Saler</span>
     </div>
 
+    {/* Menu popup mobile */}
     {showMenu && (
-      <div className="absolute bottom-12 right-0 bg-white shadow-lg rounded w-44 z-50 p-2">
+      <div className="absolute bottom-14 left-1/2 -translate-x-1/2 bg-white shadow-lg rounded-lg w-48 z-50 p-2">
         <button
           className="block w-full text-left px-4 py-2 hover:bg-gray-100 rounded"
           onClick={handleEditProfile}
@@ -161,6 +154,7 @@ function Sidebar() {
     )}
   </div>
 </div>
+
 
     </>
   );
