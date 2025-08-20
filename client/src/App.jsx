@@ -11,6 +11,7 @@ import AdminRooms from "./Pages/Admin/Rooms";
 import Bookings from "./Pages/Admin/Bookings";
 import Users from "./Pages/Admin/Users";
 import Chat from "./Pages/Admin/Chat";
+import Messages from "./Pages/Messages";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/thong-tin-ca-nhan" element={<Profile />} />
         <Route path="/phong-tro" element={<Rooms />} />
         <Route path="/phong-tro/:slug" element={<RoomDetail />} />
+        <Route path="/tin-nhan" element={<Messages />} />
+        <Route path="/tin-nhan/:roomId" element={<Messages />} />
 
         {/* Admin routes with layout */}
         <Route path="/admin" element={<AdminLayout />}>
